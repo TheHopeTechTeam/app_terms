@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 // 修改路由
 app.use('/privacyterms', express.static('public'));
