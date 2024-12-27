@@ -10,8 +10,13 @@ app.get('/', (req, res) => {
 });
 
 // 其他 API 或路由（可選）
-app.get('/privacyterms', (req, res) => {
+app.get('/zh/privacyterms', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+});
+
+// 其他 API 或路由（可選）
+app.get('/en/privacyterms', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'privacy_en.html'));
 });
 
 // 啟動伺服器
