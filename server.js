@@ -4,9 +4,13 @@ const app = express();
 // 修改路由
 app.use('/privacyterms', express.static('public'));
 
+app.get('/', (req, res) => {
+    res.redirect("https://thehope.co");
+});
+
 // 其他 API 或路由（可選）
 app.get('/privacyterms', (req, res) => {
-    res.send('Welcome to thehope.app/privacyterms!');
+    res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
 });
 
 // 啟動伺服器
