@@ -1,18 +1,16 @@
 const express = require('express');
-const path = require('path');
-
 const app = express();
 
-// 提供靜態檔案服務
-app.use(express.static('public'));
+// 修改路由
+app.use('/privacyterms', express.static('public'));
 
-// 主路由回傳隱私條款頁面
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+// 其他 API 或路由（可選）
+app.get('/privacyterms', (req, res) => {
+    res.send('Welcome to thehope.app/privacyterms!');
 });
 
 // 啟動伺服器
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
